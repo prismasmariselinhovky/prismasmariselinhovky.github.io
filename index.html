@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Volumen Mariselinhovsky</title>
+</head>
+<body>
+	<h1>Prismas</h1>
+	<img src="Prismas.jpg" width="20%">
+	<h3>Base:</h3>
+	<h4>Cantidad de lados del pol&iacute;gono base.</h4>
+	<input id="ladosbasepr" placeholder="Lados de la base">
+	<h4>Lado</h4>
+	<input id="ladopr" placeholder="Lado">
+	<h4>Altura o apotema</h4>
+	<input id="apr" placeholder="Altura o apotema">
+	<h3>Altura:</h3>
+	<input id="alturapr" placeholder="Altura del prisma">
+	<button onclick="prisma()">calcular volumen</button>
+	<div id="resultadoprisma"></div>
+	<!--piramide-->
+	<h1>Pir&aacute;mides</h1>
+	<img src="Piramides.jpg" width="20%">
+	<h3>Base:</h3>
+	<h4>Cantidad de lados del pol&iacute;gono base.</h4>
+	<input id="ladosbasepi" placeholder="Lados de la base">
+	<h4>Lado</h4>
+	<input id="ladopi" placeholder="Lado">
+	<h4>Altura o apotema</h4>
+	<input id="api" placeholder="Altura o apotema">
+	<h3>Altura:</h3>
+	<input id="alturapi" placeholder="Altura de la pirámide">
+	<button onclick="piramide()">calcular volumen</button>
+	<div id="resultadopiramide"></div>
+	<!--cilindro-->
+	<h1>Cilindro</h1>
+	<img src="Cilindro.jpg" width="10%">
+	<h3>Base:</h3>
+	<h4>Radio</h4>
+	<input id="radio" placeholder="radio">
+	<h3>Altura:</h3>
+	<input id="alturaci" placeholder="Altura del cilindro">
+	<button onclick="cilindro()">calcular volumen</button>
+	<div id="resultadocilindro"></div>
+	<!--cono-->
+	<h1>Cono</h1>
+	<img src="Cono.jpg" width="10%">
+	<h3>Base:</h3>
+	<h4>Radio</h4>
+	<input id="radioco" placeholder="radio">
+	<h3>Altura:</h3>
+	<input id="alturaco" placeholder="Altura del cono">
+	<button onclick="cono()">calcular volumen</button>
+	<div id="resultadocono"></div>
+	<!--esfera-->
+	<h1>Esfera</h1>
+	<img src="Esfera.jpg" width="10%">
+	<h3>Base:</h3>
+	<h4>Radio</h4>
+	<input id="radioesf" placeholder="radio">
+	<button onclick="esfera()">calcular volumen</button>
+	<div id="resultadoesfera"></div>
+	<script type="text/javascript">
+		function prisma(){
+			var numerolados = document.getElementById('ladosbasepr').value;
+			var lado = document.getElementById('ladopr').value;
+			var a = document.getElementById('apr').value;
+			var h = document.getElementById('alturapr').value;
+			var risoltpr = '';
+			if (numerolados == 3) {
+				risoltpr = ((lado * a)/2)*h;
+				document.getElementById('resultadoprisma').innerHTML = 'El volúmen es de: ' + risoltpr + " unidades cubicas";
+			}else if (numerolados == 4){
+				risoltpr = lado * a * h
+				document.getElementById('resultadoprisma').innerHTML = 'El volúmen es de: ' + risoltpr + " unidades cubicas";
+			}else{
+				risoltpr = ((numerolados * lado * a)/2)*h
+				document.getElementById('resultadoprisma').innerHTML = 'El volúmen es de: ' + risoltpr + " unidades cubicas";
+			}
+		}
+		function piramide() {
+			var numeroladospi = document.getElementById('ladosbasepi').value;
+			var ladopi = document.getElementById('ladopi').value;
+			var api = document.getElementById('api').value;
+			var hpi = document.getElementById('alturapi').value;
+			var risoltpi = '';
+			if (numeroladospi == 3) {
+				risoltpi = (((ladopi * api)/2)*hpi)/3;
+				document.getElementById('resultadopiramide').innerHTML = 'El volúmen es de: ' + risoltpi + " unidades cubicas";
+			}else if (numeroladospi == 4){
+				risoltpi = (ladopi * api * hpi)/3;
+				document.getElementById('resultadopiramide').innerHTML = 'El volúmen es de: ' + risoltpi + " unidades cubicas";
+			}else{
+				risoltpi = (((numeroladospi * ladopi * api)/2)*hpi)/3
+				document.getElementById('resultadopiramide').innerHTML = 'El volúmen es de: ' + risoltpi + " unidades cubicas";
+			}
+		}
+		function cilindro() {
+			var hci = document.getElementById('alturaci').value;
+			var raci = document.getElementById('radio').value;
+			var risoltci = '';
+			risoltci = raci * 3.14 * raci * hci;
+			document.getElementById('resultadocilindro'). innerHTML = 'El volúmen es de: ' + risoltci + " unidades cubicas";
+
+		}
+		function cono(){
+			var hco = document.getElementById('alturaco').value;
+			var raco = document.getElementById('radioco').value;
+			var risoltco = '';
+			risoltco = (raco * 3.14 * raco * hco)/3;
+			document.getElementById('resultadocono').innerHTML = 'El volúmen es de: ' + risoltco + " unidades cubicas";
+		}
+		function esfera(){
+			var radesf = document.getElementById('radioesf').value;
+			var risoltesf = '';
+			risoltesf = 4.18 * radesf * radesf * radesf;
+			document.getElementById('resultadoesfera').innerHTML = 'El volúmen es de: ' + risoltesf + " unidades cubicas";
+		}
+	</script>
+</html>
