@@ -2,21 +2,57 @@
 <html>
 <head>
 	<title>Volumen Mariselinhovsky</title>
+	<style type="text/css">   
+		button{
+			background-color: black;
+			color: white;
+		}
+		button:hover{
+			background-color: white;
+			color: black;
+		}
+	</style>
 </head>
 <body>
-	<h1>Prismas</h1>
-	<img src="Prismas.jpg" width="20%">
-	<h3>Base:</h3>
-	<h4>Cantidad de lados del pol&iacute;gono base.</h4>
-	<input id="ladosbasepr" placeholder="Lados de la base">
-	<h4>Lado</h4>
-	<input id="ladopr" placeholder="Lado">
-	<h4>Altura o apotema</h4>
-	<input id="apr" placeholder="Altura o apotema">
-	<h3>Altura:</h3>
-	<input id="alturapr" placeholder="Altura del prisma">
-	<button onclick="prisma()">calcular volumen</button>
-	<div id="resultadoprisma"></div>
+	<h1>Prisma Triangular</h1>
+	<img src="PrismaTriangular.jpg" width="10%">
+	<h4>lado 1:</h4>
+	<input id="base" placeholder="Longitud Base">
+	<h4>lado 2:</h4>
+	<input id="l2pt" placeholder="Longitud Lado">
+	<h4>lado 3:</h4>
+	<input id="l3pt" placeholder="Longitud Lado">
+	<h4>altura base:</h4>
+	<input id="apt" placeholder="Altura Triangulo Base">
+	<h4>altura prisma:</h4>
+	<input id="hpt" placeholder="Altura Prisma">
+	<button onclick="PrismaTriangular()">Calcular</button>
+	<div id="resultadoprismatriangular"></div>
+	<!--prisma cuadrangular-->
+	<h1>Prisma Cuadrangular</h1>
+	<img src="PrismaCuadrangular.jpg" width="10%">
+	<h4>lado 1:</h4>
+	<input id="l1pc" placeholder="Longitud Lado">
+	<h4>lado 2:</h4>
+	<input id="l2pc" placeholder="Longitud Lado">
+	<h4>altura:</h4>
+	<input id="hpc" placeholder="Altura Prisma">
+	<button onclick="PrismaCuadrangular()">Calcular</button>
+	<div id="resultadoprismacuadrangular"></div>
+	<!--prisma con mas de 4 lados-->
+	<h1>Prisma Con Mas de 4 Lados</h1>
+	<img src="PrismaPentagonal.jpg" width="10%">
+	<img src="PrismaHexagonal.jpg" width="11%">
+	<h4>Numero de Lados:</h4>
+	<input id="nlprm" placeholder="Numero Lados">
+	<h4>lado:</h4>
+	<input id="lpm" placeholder="Longitud Lado">
+	<h4>apotema:</h4>
+	<input id="aprm" placeholder="Apotema">
+	<h4>altura:</h4>
+	<input id="hpm" placeholder="Altura Prisma">
+	<button onclick="PrismaMasCuatroLados()">Calcular</button>
+	<div id="resultadoprismamascuatrolados"></div>
 	<!--piramide-->
 	<h1>Pir&aacute;mides</h1>
 	<img src="Piramides.jpg" width="20%">
@@ -29,7 +65,7 @@
 	<input id="api" placeholder="Altura o apotema">
 	<h3>Altura:</h3>
 	<input id="alturapi" placeholder="Altura de la pirámide">
-	<button onclick="piramide()">calcular volumen</button>
+	<button onclick="piramide()">calcular</button>
 	<div id="resultadopiramide"></div>
 	<!--cilindro-->
 	<h1>Cilindro</h1>
@@ -39,7 +75,7 @@
 	<input id="radio" placeholder="radio">
 	<h3>Altura:</h3>
 	<input id="alturaci" placeholder="Altura del cilindro">
-	<button onclick="cilindro()">calcular volumen</button>
+	<button onclick="cilindro()">calcular</button>
 	<div id="resultadocilindro"></div>
 	<!--cono-->
 	<h1>Cono</h1>
@@ -49,7 +85,7 @@
 	<input id="radioco" placeholder="radio">
 	<h3>Altura:</h3>
 	<input id="alturaco" placeholder="Altura del cono">
-	<button onclick="cono()">calcular volumen</button>
+	<button onclick="cono()">calcular</button>
 	<div id="resultadocono"></div>
 	<!--esfera-->
 	<h1>Esfera</h1>
@@ -57,25 +93,47 @@
 	<h3>Base:</h3>
 	<h4>Radio</h4>
 	<input id="radioesf" placeholder="radio">
-	<button onclick="esfera()">calcular volumen</button>
+	<button onclick="esfera()">calcular</button>
 	<div id="resultadoesfera"></div>
 	<script type="text/javascript">
-		function prisma(){
-			var numerolados = document.getElementById('ladosbasepr').value;
-			var lado = document.getElementById('ladopr').value;
-			var a = document.getElementById('apr').value;
-			var h = document.getElementById('alturapr').value;
-			var risoltpr = '';
-			if (numerolados == 3) {
-				risoltpr = ((lado * a)/2)*h;
-				document.getElementById('resultadoprisma').innerHTML = 'El volúmen es de: ' + risoltpr + " unidades cubicas";
-			}else if (numerolados == 4){
-				risoltpr = lado * a * h
-				document.getElementById('resultadoprisma').innerHTML = 'El volúmen es de: ' + risoltpr + " unidades cubicas";
-			}else{
-				risoltpr = ((numerolados * lado * a)/2)*h
-				document.getElementById('resultadoprisma').innerHTML = 'El volúmen es de: ' + risoltpr + " unidades cubicas";
-			}
+		function PrismaTriangular() {
+			var base = document.getElementById('base').value;
+			var lado2 = document.getElementById('l2pt').value;
+			var lado3 = document.getElementById('l3pt').value;
+			var haltura = document.getElementById('apt').value;
+			var altura = document.getElementById('hpt').value;
+			var risoltptvo = '';
+			var risoltptal = '';
+			var risoltptat = '';
+			risoltptal = (base + lado2 + lado3) * altura;
+			risoltptvo = ((base * haltura)/2)* altura;
+			risoltptat = risoltptal + (base * haltura);
+			document.getElementById('resultadoprismatriangular').innerHTML = 'volumen: ' + risoltptvo + "<br>" + 'area lateral: ' + risoltptal + "<br>" + 'area total: ' + risoltptat;
+		}
+		function PrismaCuadrangular() {
+			var base = document.getElementById('l1pc').value;
+			var altura = document.getElementById('l2pc').value;
+			var haltura = document.getElementById('hpc').value;
+			risoltpcal = '';
+			risoltpcat = '';
+			risoltpcvo = '';
+			risoltpcal = ((2 * base) + (2 * altura)) * haltura;
+			risoltpcvo = base * altura * haltura;
+			risoltpcat = risoltpcal + (2 * base * altura);
+			document.getElementById('resultadoprismacuadrangular').innerHTML = 'volumen: ' + risoltpcvo + "<br>" + 'area lateral: ' + risoltpcal + "<br>" + 'area total: ' + risoltpcat;
+		}
+		function PrismaMasCuatroLados(){
+			var nl = document.getElementById('nlprm').value;
+			var lado = document.getElementById('lpm').value;
+			var apotema = document.getElementById('aprm').value;
+			var haltura = document.getElementById('hpm').value;
+			risoltprmal = '';
+			risoltprmat = '';
+			risoltprmvo = '';
+			risoltprmal = nl * lado * haltura;
+			risoltprmvo = ((nl * lado * apotema)/2) * haltura; 
+			risoltprmat = risoltprmal + (nl * lado * apotema)
+			document.getElementById('resultadoprismamascuatrolados').innerHTML = 'volumen: ' + risoltprmvo + "<br>" + 'area lateral: ' + risoltprmal + "<br>" + 'area total: ' + risoltprmat;
 		}
 		function piramide() {
 			var numeroladospi = document.getElementById('ladosbasepi').value;
@@ -97,9 +155,13 @@
 		function cilindro() {
 			var hci = document.getElementById('alturaci').value;
 			var raci = document.getElementById('radio').value;
-			var risoltci = '';
-			risoltci = raci * 3.14 * raci * hci;
-			document.getElementById('resultadocilindro'). innerHTML = 'El volúmen es de: ' + risoltci + " unidades cubicas";
+			var risoltcivo = '';
+			var risoltcial = '';
+			var risoltciat = '';
+			risoltcivo = raci * 3.14 * raci * hci;
+			risoltcial = 2 * raci * 3.14 * hci;
+			risoltciat = risoltcial + (2 * (3.14 * raci * raci))
+			document.getElementById('resultadocilindro'). innerHTML = 'volumen: ' + risoltcivo + "<br>" + 'area lateral: ' + risoltcial + "<br>" + 'area total: ' + risoltciat;
 
 		}
 		function cono(){
