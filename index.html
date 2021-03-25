@@ -16,7 +16,7 @@
 <body>
 	<h1>Prisma Triangular</h1>
 	<img src="PrismaTriangular.jpg" width="10%">
-	<h4>lado 1:</h4>
+	<h4>Base:</h4>
 	<input id="base" placeholder="Longitud Base">
 	<h4>lado 2:</h4>
 	<input id="l2pt" placeholder="Longitud Lado">
@@ -97,14 +97,15 @@
 	<div id="resultadoesfera"></div>
 	<script type="text/javascript">
 		function PrismaTriangular() {
-			var base = document.getElementById('base').value;
-			var lado2 = document.getElementById('l2pt').value;
-			var lado3 = document.getElementById('l3pt').value;
-			var haltura = document.getElementById('apt').value;
-			var altura = document.getElementById('hpt').value;
+			var base = parseInt(document.getElementById('base').value);
+			var lado2 = parseInt(document.getElementById('l2pt').value);
+			var lado3 = parseInt(document.getElementById('l3pt').value);
+			var haltura = parseInt(document.getElementById('apt').value);
+			var altura = parseInt(document.getElementById('hpt').value);
 			var risoltptvo = '';
 			var risoltptal = '';
 			var risoltptat = '';
+			console.log(base + lado2 + lado3)
 			risoltptal = (base + lado2 + lado3) * altura;
 			risoltptvo = ((base * haltura)/2)* altura;
 			risoltptat = risoltptal + (base * haltura);
